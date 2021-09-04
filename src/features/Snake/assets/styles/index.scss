@@ -1,0 +1,253 @@
+$border-color: #333;
+$text-color: rgba(0, 0, 0, 0.85); // 主文本色
+$text-color-secondary: rgba(0, 0, 0, 0.45); // 次文本色
+$primary-color: #0070f3;
+$success-color: #52c41a;
+$warning-color: #faad14;
+$danger-color: #f5222d;
+
+.page-snake {
+  display: flex;
+  height: 100%;
+  border-width: 11px 11px 12px;
+  border-style: solid;
+  border-color: $border-color;
+  user-select: none;
+
+  .game-container {
+    position: relative;
+    width: 680px;
+    height: 100%;
+    background-image: url('~/src/features/Snake/assets/img/item.svg');
+    background-size: 20px 20px;
+
+    .pause-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .btn {
+        position: relative;
+        width: 128px;
+        height: 36px;
+        padding: 0 20px;
+        box-sizing: border-box;
+        line-height: 36px;
+        text-align: center;
+        font-size: 16px;
+        color: $text-color;
+        background-color: $text-color-secondary;
+        border-radius: 18px;
+        border: 0;
+        cursor: pointer;
+        outline: none;
+        user-select: none;
+
+        &.btn:not(:first-child) {
+          margin-top: 16px;
+        }
+
+        &.btn-primary {
+          color: #fff;
+          background-color: $primary-color;
+        }
+
+        &.btn-success {
+          color: #fff;
+          background-color: $success-color;
+        }
+
+        &.btn-danger {
+          color: #fff;
+          background-color: $danger-color;
+        }
+
+        &:active {
+          text-shadow: -1px -1px 1px #333;
+        }
+      }
+    }
+
+    .game-over-wrapper {
+      .score-wrapper {
+        padding-bottom: 16px;
+        text-align: center;
+
+        .item {
+          margin: 12px 0;
+        }
+
+        em {
+          font-style: normal;
+          font-weight: 700;
+        }
+      }
+
+      .operations {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .btn {
+          position: relative;
+          padding: 0 20px;
+          box-sizing: border-box;
+          line-height: 32px;
+          text-align: center;
+          font-size: 14px;
+          color: $text-color;
+          background-color: $text-color-secondary;
+          border-radius: 18px;
+          border: 0;
+          cursor: pointer;
+          outline: none;
+          user-select: none;
+
+          &:not(:first-child) {
+            margin-left: 16px;
+          }
+
+          &.btn-success {
+            color: #fff;
+            background-color: $success-color;
+          }
+
+          &.btn-danger {
+            color: #fff;
+            background-color: $danger-color;
+          }
+        }
+      }
+    }
+  }
+
+  .aside {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-left: 9px solid $border-color;
+
+    .header {
+      position: relative;
+      height: 180px;
+    }
+
+    .control-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-top: 9px solid $border-color;
+      border-bottom: 9px solid $border-color;
+
+      .status-ctrl {
+        width: 200px;
+        height: 40px;
+
+        .main-button {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 40px;
+          font-size: 32px;
+          line-height: 40px;
+          cursor: pointer;
+          & > span {
+            font-weight: 700;
+          }
+
+          &.disabled {
+            cursor: not-allowed;
+          }
+        }
+      }
+
+      .mode-ctrl {
+        margin-top: 20px;
+
+        .mode-list {
+          width: 200px;
+          padding: 10px 20px;
+          border: 1px solid $border-color;
+
+          .item {
+            position: relative;
+            height: 32px;
+            margin-left: 40px;
+            line-height: 32px;
+            cursor: pointer;
+
+            &.disabled {
+              cursor: not-allowed;
+              &:not(.current):hover {
+                font-weight: normal;
+              }
+            }
+
+            &.current,
+            &:hover {
+              font-weight: 700;
+            }
+
+            &.current::before {
+              content: '';
+              position: absolute;
+              left: -40px;
+              top: 0;
+              width: 40px;
+              height: 32px;
+              background: url(~/src/features/Snake/assets/img/arrow-right.svg)
+                no-repeat center center;
+            }
+          }
+        }
+      }
+
+      .quit-ctrl {
+        margin-top: 20px;
+
+        .quit-btn a {
+          color: $text-color;
+          text-decoration: none;
+
+          &:hover {
+            color: $danger-color;
+          }
+        }
+      }
+    }
+
+    .state-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 180px;
+      user-select: none;
+
+      .row {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+        width: 200px;
+        height: 20px;
+        font-size: 16px;
+        color: $text-color;
+
+        .label {
+          color: $text-color-secondary;
+          height: 20px;
+          line-height: 20px;
+        }
+
+        .value {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
