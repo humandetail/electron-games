@@ -1,0 +1,97 @@
+@import './options.scss';
+$border-color: #fbfbfb;
+
+@mixin wrapperBorder {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #808080 #fff #fff #808080;
+}
+
+@mixin wrapperBorderReverse {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #fff #808080 #808080 #fff;
+}
+
+.page-mine {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  // padding: 12px;
+  background-color: #d8d8d8;
+  box-sizing: border-box;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // height: 40px;
+    padding: 4px;
+    box-sizing: border-box;
+    @include wrapperBorder;
+
+    .btn-control {
+      width: 32px;
+      height: 32px;
+      box-sizing: border-box;
+      cursor: pointer;
+      @include wrapperBorderReverse;
+      border-width: 1px;
+      background-size: 28px 28px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: url(~/src/features/Mine/assets/img/smile.png);
+
+      &:active {
+        @include wrapperBorder;
+        border-width: 1px;
+        background-size: 26px 26px;
+      }
+
+      &.sad {
+        background-image: url(~/src/features/Mine/assets/img/sad.png);
+      }
+
+      &.smile {
+        background-image: url(~/src/features/Mine/assets/img/smile.png);
+      }
+
+      &.smile-glasses {
+        background-image: url(~/src/features/Mine/assets/img/smile-glasses.png);
+      }
+    }
+
+    .counter {
+      display: flex;
+      align-items: center;
+      width: 44px;
+      height: 32px;
+      box-sizing: border-box;
+      @include wrapperBorder;
+      border-width: 1px;
+      background-color: #000;
+
+      .item {
+        width: 14px;
+        height: 30px;
+        background-image: url(~/src/features/Mine/assets/img/digits.png);
+        background-repeat: no-repeat;
+        background-size: 140px 30px;
+        background-position: 0 0;
+
+        @for $i from 0 through 9 {
+          &.item-#{$i} {
+            background-position: -14px * $i 0;
+          }
+        }
+      }
+    }
+  }
+
+  .game-wrapper {
+    flex: 1;
+    // margin-top: 12px;
+    @include wrapperBorder;
+  }
+}

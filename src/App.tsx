@@ -10,6 +10,7 @@ import Home from './features/Home';
 import './App.global.scss';
 
 const Snake = lazy(() => import('./features/Snake/routes'));
+const Mine = lazy(() => import('./features/Mine/routes'));
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route exact path="/" component={Home} />
         <Suspense fallback="">
           <Snake prefix="/snake" />
+          <Mine prefix="/mine" />
         </Suspense>
         <Redirect from="/*" to="/" />
       </Switch>

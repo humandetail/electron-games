@@ -24,12 +24,14 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 0,
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/no-noninteractive-element-interactions': 0,
+    'jsx-a11y/label-has-associated-control': 0,
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/no-unused-vars': 0,
     '@typescript-eslint/ban-types': 0,
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-shadow': 0,
     '@typescript-eslint/no-non-null-assertion': 0,
+    '@typescript-eslint/no-use-before-define': 0
   },
   parserOptions: {
     ecmaVersion: 2020,
